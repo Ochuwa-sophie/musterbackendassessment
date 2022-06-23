@@ -43,7 +43,7 @@ namespace MusterBackendAssessment.Services
         /// </summary>
         /// <param name="file">The file to be checked </param>
         /// <returns>A boolean for whether the file is valid or otherwise </returns>
-        private bool CheckIfFileIsValid(IFormFile file)
+        internal bool CheckIfFileIsValid(IFormFile file)
         {
             if (file == null) //Break if file is null
             {

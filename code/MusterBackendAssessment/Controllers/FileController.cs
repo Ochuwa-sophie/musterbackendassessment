@@ -30,9 +30,12 @@ namespace MusterBackendAssessment.Controllers
         {
             try
             {
-                if (CheckIfFileIsValid(file))
+                Matrix matrixClass = new Matrix();
+                    matrixClass.CheckIfFileIsValid(file);
+                    
+                if (matrixClass.CheckIfFileIsValid(file))
                 {
-                    var str = await ReadAsStringAsync(file);
+                    var str = await Matrix.ReadAsStringAsync(file);
                     return Ok(str);
                 }
                 else
