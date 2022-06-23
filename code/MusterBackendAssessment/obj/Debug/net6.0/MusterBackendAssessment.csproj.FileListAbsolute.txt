@@ -19,3 +19,9 @@ C:\Users\HP\Downloads\musterbackendassessment\code\MusterBackendAssessment\obj\D
 C:\Users\HP\Downloads\musterbackendassessment\code\MusterBackendAssessment\obj\Debug\net6.0\MusterBackendAssessment.pdb
 C:\Users\HP\Downloads\musterbackendassessment\code\MusterBackendAssessment\obj\Debug\net6.0\MusterBackendAssessment.genruntimeconfig.cache
 C:\Users\HP\Downloads\musterbackendassessment\code\MusterBackendAssessment\obj\Debug\net6.0\ref\MusterBackendAssessment.dll
+C:\Users\HP\Downloads\repo\musterbackendassessment\code\MusterBackendAssessment\obj\Debug\net6.0\MusterBackendAssessment.csproj.AssemblyReference.cache
+C:\Users\HP\Downloads\repo\musterbackendassessment\code\MusterBackendAssessment\obj\Debug\net6.0\MusterBackendAssessment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Downloads\repo\musterbackendassessment\code\MusterBackendAssessment\obj\Debug\net6.0\MusterBackendAssessment.AssemblyInfoInputs.cache
+C:\Users\HP\Downloads\repo\musterbackendassessment\code\MusterBackendAssessment\obj\Debug\net6.0\MusterBackendAssessment.AssemblyInfo.cs
+C:\Users\HP\Downloads\repo\musterbackendassessment\code\MusterBackendAssessment\obj\Debug\net6.0\MusterBackendAssessment.csproj.CoreCompileInputs.cache
+C:\Users\HP\Downloads\repo\musterbackendassessment\code\MusterBackendAssessment\obj\Debug\net6.0\MusterBackendAssessment.MvcApplicationPartsAssemblyInfo.cache
