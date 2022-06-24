@@ -12,6 +12,54 @@ using System.Threading.Tasks;
 namespace MusterBackendAssessment.Services
 {
     public class Matrix{
+                        // private int[,] contents;
+                        ///<summary>Create a matrix by parsing a string containing comma-separated elements
+                        /// on rows separated by newlines</summary>
+
+                        // private Matrix(int[,] contents) {
+                        //     this.contents = contents;
+                        // }
+private string[,] oneLine;
+private Matrix(string[,] oneLine)
+{
+    this.oneLine = oneLine;
+}
+        public Matrix()
+        {
+        }
+
+        // public static int[,]
+        // {
+        //     return contents;
+        // }
+        public string Parse(string input, out string result)
+                        {
+                                if (input == null) //Break if file is null
+                            {
+                                throw new FileNotFoundException("File cannot be null, please upload a file");
+                            } 
+                            else{
+                                string[] oneLine = input.Split(
+                                                    Environment.NewLine.ToArray(),StringSplitOptions.RemoveEmptyEntries);
+
+                                                    List<string[]> matrixTranspose = new List<string[]>();
+                                                    foreach (string one in oneLine)
+                                                    {
+                                                      matrixTranspose.Add(one.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
+                                                        
+                                                    }   
+                                                     result =  matrixTranspose.ToString();
+ 
+                                                    // contents= matrixTranspose.;
+                                                        // var result = matrixTranspose.ToString;
+                                                        // return (matrixTranspose);
+                                                        return result;
+                                                        // return new int[,] contents(int[,]) {matrixTranspose.ToArray};
+
+                                }
+                        }
+
+
 
         /// <summary>
         /// Reads the content of the file into a string variable 
@@ -20,22 +68,12 @@ namespace MusterBackendAssessment.Services
         /// <returns>A string whose value is the content of the file</returns>
         public static async Task<string> ReadAsStringAsync( IFormFile file)
         {
-            try
-            {
-                if (file == null || file.Length == 0)
-                {
-                    return await Task.FromResult((string)null);
-                }
-
+                if (file == null || file.Length == 0)   return null;
                 using (var reader = new StreamReader(file.OpenReadStream()))
                 {
                     return await reader.ReadToEndAsync();
                 }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+
         }
 
         /// <summary>

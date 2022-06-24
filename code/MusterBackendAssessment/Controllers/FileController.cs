@@ -32,7 +32,7 @@ namespace MusterBackendAssessment.Controllers
             {
                 Matrix matrixClass = new Matrix();
                     matrixClass.CheckIfFileIsValid(file);
-                    
+
                 if (matrixClass.CheckIfFileIsValid(file))
                 {
                     var str = await Matrix.ReadAsStringAsync(file);
@@ -49,6 +49,45 @@ namespace MusterBackendAssessment.Controllers
             }
         }
 
+        /// <summary>
+        /// Return the matrix as a transposed matrix in string format.
+        /// </summary>
+        /// <param name="file">The file to process</param>
+        /// <returns>The transposed matrix in string format.</returns>
+        [AllowAnonymous]
+        [HttpPost("transpose")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Transpose(IFormFile file) 
+        {
+            Matrix fileValid = new Matrix();
+            fileValid.CheckIfFileIsValid(file);
+            var filevalidation = fileValid.CheckIfFileIsValid(file);
+
+            try
+            {
+                if (filevalidation)
+                {
+                    var inputString = await Matrix.ReadAsStringAsync(file);
+                    string result;
+
+                    Matrix forParsing = new Matrix();
+                 var matrix = forParsing.Parse(inputString, out result);
+                    
+                    // var transpose = matrix.Transpose();
+                    // var result = transpose.ToString();
+                        
+                        return Ok(matrix);                }
+                else
+                {
+                    return BadRequest("Invalid file format, please enter a .csv file");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
 
 
