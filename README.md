@@ -64,7 +64,7 @@ use postman if you're unfamiliar with curl
 
 - The solution runs
 - The solution performs all cases correctly
-- The code is easy to read
+- The code is easy to read - 
 - The code is reasonably documented
 - The code is tested using unit tests
 - The code is robust and handles invalid input and provides helpful error messages

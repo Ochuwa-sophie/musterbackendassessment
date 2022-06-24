@@ -53,7 +53,7 @@ private Matrix(string[,] oneLine)
                                                     // contents= matrixTranspose.;
                                                         // var result = matrixTranspose.ToString;
                                                         // return (matrixTranspose);
-                                                        return result;
+                                                        return matrixTranspose.ToString();
                                                         // return new int[,] contents(int[,]) {matrixTranspose.ToArray};
 
                                 }
