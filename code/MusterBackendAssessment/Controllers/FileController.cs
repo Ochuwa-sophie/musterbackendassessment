@@ -12,6 +12,7 @@ using MusterBackendAssessment.Services;
 
 namespace MusterBackendAssessment.Controllers
 {
+    //This class should only 
     [Route("/")]
     [ApiController]
     public class FileController : ControllerBase
@@ -60,19 +61,21 @@ namespace MusterBackendAssessment.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Transpose(IFormFile file) 
         {
-            Matrix fileValid = new Matrix();
-            fileValid.CheckIfFileIsValid(file);
-            var filevalidation = fileValid.CheckIfFileIsValid(file);
+            // Matrix fileValid = new Matrix();
+            // fileValid.CheckIfFileIsValid(file);
+            // var filevalidation = fileValid.CheckIfFileIsValid(file);
 
             try
             {
                 if (filevalidation)
                 {
                     var inputString = await Matrix.ReadAsStringAsync(file);
-                    string result;
+                    // string result;
 
                     Matrix forParsing = new Matrix();
-                 var matrix = forParsing.Parse(inputString, out result);
+                 var matrix = forParsing.Parse(inputString
+                                        // , out result
+                                        );
                     
                     // var transpose = matrix.Transpose();
                     // var result = transpose.ToString();
@@ -88,6 +91,21 @@ namespace MusterBackendAssessment.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        internal bool CheckIfFileIsValid(IFormFile file)
+        {
+            if (file == null) //Break if file is null
+            {
+                throw new FileNotFoundException("File cannot be null, please upload a file");
+            }
+            else
+            {
+                var extension = "." + file.FileName.Split('.')[file.FileName.Split('.').Length - 1];
+                return extension == ".csv";
+            }
+
+        }
+
 
 
 

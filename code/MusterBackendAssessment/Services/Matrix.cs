@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace MusterBackendAssessment.Services
 {
+    //this class should only handle Numbers and matrix related actions
     public class Matrix{
                         // private int[,] contents;
                         ///<summary>Create a matrix by parsing a string containing comma-separated elements
@@ -32,28 +33,40 @@ private Matrix(string[,] oneLine)
         // {
         //     return contents;
         // }
-        public string Parse(string input, out string result)
-                        {
-                                if (input == null) //Break if file is null
+        public Array[,] Parse(string input 
+                                        // ,out string result
+                                        )
+                        {       
+                                if (input == null) //Break if file is null, 
+                                //change to output from file processing
                             {
-                                throw new FileNotFoundException("File cannot be null, please upload a file");
+                                // 123,456,789
+                                //files are on disk, strings are in memory. What is this method responsible for? strings not files.
+                                throw new ArgumentNullException ("String cannot be null, ");
                             } 
                             else{
                                 string[] oneLine = input.Split(
                                                     Environment.NewLine.ToArray(),StringSplitOptions.RemoveEmptyEntries);
 
-                                                    List<string[]> matrixTranspose = new List<string[]>();
+                                                    // List<string[]> matrixTranspose = new List<string[]>();
+                                                    string matrixTranspose;
+                                                    // string transposeJoin;
                                                     foreach (string one in oneLine)
                                                     {
-                                                      matrixTranspose.Add(one.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
-                                                        
+                                                    //   matrixTranspose.Add(one.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
+                                                        matrixTranspose = string.Join(",",one, StringSplitOptions.RemoveEmptyEntries);
+                                                    // matrixTranspose=transposeJoin; 
+                                                        string TransposeJoin = matrixTranspose.ToString() ;
+
+
                                                     }   
-                                                     result =  matrixTranspose.ToString();
+                                                    //  result =  transposeJoin;
+                                                     return (TransposeJoin);
  
                                                     // contents= matrixTranspose.;
                                                         // var result = matrixTranspose.ToString;
                                                         // return (matrixTranspose);
-                                                        return matrixTranspose.ToString();
+                                                        // return string.Join<matrixTranspose>(",",IEnumerable<matrixTranspose> ) .ToString();
                                                         // return new int[,] contents(int[,]) {matrixTranspose.ToArray};
 
                                 }
@@ -81,19 +94,35 @@ private Matrix(string[,] oneLine)
         /// </summary>
         /// <param name="file">The file to be checked </param>
         /// <returns>A boolean for whether the file is valid or otherwise </returns>
-        internal bool CheckIfFileIsValid(IFormFile file)
-        {
-            if (file == null) //Break if file is null
-            {
-                throw new FileNotFoundException("File cannot be null, please upload a file");
-            }
-            else
-            {
-                var extension = "." + file.FileName.Split('.')[file.FileName.Split('.').Length - 1];
-                return extension == ".csv";
-            }
-
-        }
     }
+    
 
 }
+// using System;
+
+// public class Matrix {
+//     private Matrix(int[,] contents) {
+//         this.Contents = contents;
+//     }
+//     public int[,] Contents { get; init; }
+
+//     ///<summary>Create a matrix by parsing a string containing comma-separated elements
+//     /// on rows separated by newlines</summary>
+//     public static Matrix Parse(string input) {    
+//         // TODO: instead of hard-coding the matrix,
+//         // you need to split the string input into lines,
+//         // split each line into tokens (numbers), parse each number
+//         // into an integer, and then construct a new matrix using
+//         // that set of numbers.
+//         return new Matrix(new int[,] { { 1,1}, {2,2} });
+//     }
+
+//     public Matrix Transpose() {
+//         // TODO: Return a new matrix whose contents
+//         // are the transpose of the current matrix.
+//         return new Matrix(new int[,] { { 1,1,1}, {2,2,2}, {3,3,3} });
+//     }
+//     public override string ToString() {
+//         return "//todo: return this matrix as a string :)";
+//     }
+// }

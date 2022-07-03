@@ -1,0 +1,102 @@
+matrix.cs
+
+        private int[,] contents;
+        ///<summary>Create a matrix by parsing a string containing comma-separated elements
+        /// on rows separated by newlines</summary>
+        private Matrix(int[,] contents) {
+                this.contents = contents;
+            }
+
+        public static int[,] GetContents()
+        {
+            return contents;
+        }
+
+        public static Matrix Parse(string s, int[,] contents) 
+        {
+                var numbers = s.Split(',').Select(p =>(Environment.NewLine)).ToArray();
+                var twoD = new String[numbers.Length,numbers[0].Length];
+                for (int i = 0 ; i != numbers.Length ; i++)
+                    for (int j = 0 ; j != numbers[0].Length ; j++)
+                        twoD[i,j] = numbers[i][j].ToString();
+                        
+                Matrix newMatrix = new Matrix(contents);
+                return contents;
+        }
+         
+
+            public Matrix Reverse() {
+                var numbers = this.contents;
+                var reversedNumbers = numbers.Reverse();
+                return new Matrix(reversedNumbers.ToArray());
+            }
+
+    public override string ToString() {
+        return String.Join(",", this.contents);
+    }
+//                     newMatrix Matrix = new Matrix();
+//                     private Matrix (int[,] contents) {
+//         this.contents = contents;
+//     }
+//                     var newline = input.Split(
+//                     Environment.NewLine.ToArray(),StringSplitOptions.RemoveEmptyEntries);
+
+//                     int[,] oneLine = newline.Select(int.Parse).ToArray();
+
+//                     Matrix matrixNew = new Matrix();
+//                     contents = oneLine;
+//                     return contents();
+                    //  List<int[]> matrixTranspose = new List<int[]>();
+                     
+
+
+                    // foreach (int one in oneLine)
+                    // {
+                    //     matrixTranspose.Add(one.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
+                         
+                    // }     
+
+                    // Array.ConvertAll(input, int.Parse);
+                    // var outputMatrix = matrixTranspose.ToString;
+                    // return (outputMatrix);
+        //             return a.Split('=', '#')
+        // .Select(x => Convert.ToInt32(x))
+        // .ToList();
+                // }
+        }   
+
+            /// <summary>
+            /// Reads the content of the file into a string variable 
+            /// </summary>
+            /// <param name="file">The file to be read</param>
+            /// <returns>A string whose value is the content of the file</returns>
+            public static async Task<string> ReadAsStringAsync(IFormFile file) 
+            {
+                
+                if (file == null || file.Length == 0) return null;
+                    using (var reader = new StreamReader(file.OpenReadStream())) 
+                    {
+                            
+                        return await reader.ReadToEndAsync();
+
+                    }                    
+            }
+
+            /// <summary>
+            /// Checks if the file is not null and has a valid extension
+            /// </summary>
+            /// <param name="file">The file to be checked </param>
+            /// <returns>A boolean for whether the file is valid or otherwise </returns>
+            internal bool CheckIfFileIsValid(IFormFile file) 
+            {
+                if (file == null) //Break if file is null
+                {
+                    throw new FileNotFoundException("File cannot be null, please upload a file");
+                } 
+                else{
+                        var extension = "." + file.FileName.Split('.')[file.FileName.Split('.').Length - 1];
+                        return extension == ".csv";
+                    }
+
+            }
+}

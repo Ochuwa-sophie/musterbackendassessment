@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Downloads\\repo\\musterbackendassessment\\code\\MusterBackendAssessment\\MusterBackendAssessment.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\source\\repos\\musterbackendassessment\\code\\MusterBackendAssessment\\MusterBackendAssessment.csproj",
       "projectName": "MusterBackendAssessment",
-      "projectPath": "C:\\Users\\HP\\Downloads\\repo\\musterbackendassessment\\code\\MusterBackendAssessment\\MusterBackendAssessment.csproj",
+      "projectPath": "C:\\Users\\HP\\source\\repos\\musterbackendassessment\\code\\MusterBackendAssessment\\MusterBackendAssessment.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Downloads\\repo\\musterbackendassessment\\code\\MusterBackendAssessment\\obj\\",
+      "outputPath": "C:\\Users\\HP\\source\\repos\\musterbackendassessment\\code\\MusterBackendAssessment\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
